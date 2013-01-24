@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="row">
+
+    <aside class="span4">
+		<%= render @user%>  
+	</aside>
+
+    <div class="span8">
+		<%= render @question %>
+		<%= will_paginate @question %>
+		<% if @user.questions.length == 0 %>
+			<div class="bubble">
+			It looks like you haven't posted any questions yet... <br><br>
+			What are you wondering?&#160;&#160;&#160;Ask it <%= link_to 'here', new_question_path %>
+			</div>
+		<% end %>
+    </div>
+
+  </div> 
+
+
+<% link_to 'Edit', edit_user_path(@user) %> |
+<% link_to 'Back', users_path %>

@@ -1,0 +1,69 @@
+<% if signed_in? %>
+
+  <div class="row">
+    <aside class="span4">
+		<div class="hero-unit">
+		<% @user = current_user%>
+		<% render @user%>
+		<% User.all(limit:16).each do |user| %>
+			<%= link_to gravatar_for(user, size:35), user_path(user), onmouseover: "alert(user.username)" %>
+
+		<% end %>
+<br>
+<br>
+<br>	
+<br>
+<br>
+<br>
+<br>
+		</div>
+    </aside>
+
+    <div class="span8">
+		<%= render @question %>
+		<%= will_paginate @question %>
+    </div>
+  </div>  
+
+<% else %>
+  <div class="center hero-unit">
+    <h1>Invest in public opinion.</h1>
+    <h2>
+      A community of 1,255 members, affecting public opinion daily.
+    </h2>
+
+    <br>
+
+    <%= link_to "Join Now", signup_path, class: "btn-signin" %>
+  </div>
+
+
+  
+  <div class="center hero-unit2">
+
+  <br>
+  <br>
+
+   <div class="row">
+      <div id="step-invest" class="span4">
+      
+        <h2>Observe</h2>
+      </div>
+      <div id="step-invest" class="span4">
+      
+        <h2>Learn</h2>
+      </div>
+      <div id="step-invest" class="span4">
+      
+        <h2>Influence</h2>
+      </div>
+
+    </div>
+
+    
+  </div>
+
+
+<% end %>
+
+

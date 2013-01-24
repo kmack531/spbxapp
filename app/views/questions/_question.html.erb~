@@ -1,0 +1,29 @@
+<div class="bubble">
+	<div class="container-fluid">
+		<div class="row-fluid center">
+			<div class="span 11" offset0" align="center">
+				<s1><b><%= link_to question.content, question_path(question) %></b></s1>
+			</div>
+			<br>
+			<br>
+			<div class="span5 offset0" align="left">
+				<% choice = question.choices[0] %>
+				<%= button_to [choice.content, " (",choice.votes.length,")"], {:controller => :votes, :action => :create, :choice_id => choice.id}, :class => "buttonTo btn" %>
+			</div>
+			<div class="span5 offset1" align="right">
+				<% choice = question.choices[1] %>
+				<%= button_to ["(",choice.votes.length,") ", choice.content], {:controller => :votes, :action => :create, :choice_id => choice.id}, :class => "buttonTo btn" %>
+			</div>
+		</div>
+		<div class="span3 offset0" align="left">
+			<% if question.user == current_user %>
+				<%= gravatar_for(question.user, size:15) %><%= link_to '*Delete Question*', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% else %>
+				<%= link_to gravatar_for(question.user, size:15), user_path(question.user) %><%= link_to question.user.username, user_path(question.user) %>
+			<% end %>
+		</div>
+		<div class="span3 offset0" align="right">
+			<%= link_to pluralize((question.choices[0].comments.length+question.choices[1].comments.length).to_s(),"comment"), question_path(question) %>
+		</div>
+	</div>
+</div>

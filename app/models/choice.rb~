@@ -1,0 +1,8 @@
+class Choice < ActiveRecord::Base
+  attr_accessible :content, :question_id, :description, :comments_attributes
+  belongs_to :question
+  has_many :votes
+  has_many :comments
+
+  accepts_nested_attributes_for :comments
+end

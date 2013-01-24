@@ -1,0 +1,37 @@
+<p id="notice"><% notice %></p>
+
+<div class="bubble">
+	<div class="container-fluid">
+		<div class="row-fluid center">
+			<div class="span 10" offset1">
+				<h1><b><%= @question.content %></b></h1>
+				<% if @question.user == current_user %>
+					<div class="span6 offset0" align="left">
+						<s-3><%= link_to "View All Your Questions", user_path(@question.user) %></s-3>
+					</div>
+					<div class="span5 offset0" align="right">
+						<s-3><%= link_to '*Delete This Question*', @question, method: :delete, data: { confirm: 'Are you sure?' } %></s-3>
+					</div>
+				<% else %>
+					<s-3><%= link_to "*show all questions from user*", user_path(@question.user) %></s-3>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<div class="container-fluid">
+	<div class="row-fluid center">
+		<div class="span6 offset0">
+			<% @choice = @question.choices[0] %>
+			<%= render 'choice_column' %>
+		</div>
+		<div class="span6 offset0">
+			<% @choice = @question.choices[1] %>
+			<%= render 'choice_column' %>
+		</div>
+	</div>
+</div>
+
+<% link_to 'Edit', edit_question_path(@question) %> 
+<% link_to 'Back', questions_path %>

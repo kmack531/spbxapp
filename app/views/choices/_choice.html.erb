@@ -1,0 +1,1 @@
+<%= button_to [choice.content, "  (",choice.votes.length,")"], {:controller => :votes, :action => :create, :choice_id => choice.id}, :class => "buttonTo btn-large" %>

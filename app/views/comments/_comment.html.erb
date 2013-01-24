@@ -1,0 +1,19 @@
+<div class="bubble">
+	<div class="span1" align="right">
+		<%= gravatar_for(comment.user, size: 15) %> 
+	</div>
+	<div class="span8" align="left">
+		<% if comment.user == current_user %>
+			<%= link_to '*Delete This Comment*', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% else %>
+			<b><%= comment.user.username %></b>
+		<% end %>
+	</div>
+	<div class="span1" align="right">
+		<%= button_to ["+", comment.likes.length], {:controller => :likes, :action => :create, :comment_id => comment.id}, :class => "smallButton" %>
+	</div>
+	<div class="span1 offset1" align="right">
+		<%= button_to ["-", comment.dislikes.length], {:controller => :dislikes, :action => :create, :comment_id => comment.id}, :class => "smallButton" %>
+	</div>
+	<%= comment.content %>	
+</div>

@@ -1,0 +1,6 @@
+<div class="span10 offset1" align="justify">
+<%= button_to [choice.content, "  (",choice.votes.length,")"], {:controller => :votes, :action => :create, :choice_id => choice.id}, :class => "buttonTo btn-large" %>
+</div>
+<div class="span1" align="justify">
+<i class="icon-thumbs-up"></i>  <%= choice.votes.length %>
+</div>

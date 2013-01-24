@@ -1,0 +1,6 @@
+<%= form_for(@comment1 = @choice.comments.build(:choice_id => @choice.id)) do |f| %>
+
+  <%= render 'comment_fields', f: f %>
+
+  <%= f.submit "Add Comment", :choice_id => @choice.id, class: "btn btn-large btn-primary" %>
+<% end %>

@@ -1,0 +1,15 @@
+<% provide(:title, 'New Question') %>
+<div class="hero-unit">
+<h1>Post a Question</h1>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="span7 offset2">
+    <%= form_for(@question) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Post Question", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>

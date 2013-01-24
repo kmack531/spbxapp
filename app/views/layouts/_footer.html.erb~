@@ -1,0 +1,18 @@
+<br /><br />
+<footer class="footer">
+<div class="navbar-inner">
+    <div class="container">
+  <small>
+    site by 
+    <a href="http://www.ncheney.com">Nick Cheney</a>
+  </small>
+  <nav>
+    <ul class="span2 offset8">
+      <li><%= link_to "About",   about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><a href="http://www.peoplessoapbox.com", target="_blank">Info</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+</footer>

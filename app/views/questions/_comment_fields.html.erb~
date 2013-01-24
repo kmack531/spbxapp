@@ -1,0 +1,4 @@
+<%= f.text_area :content, placeholder: "Have a comment to add?", rows: 3 %>
+<%= hidden_field_tag(:choice_id, @choice1.id) %>
+<%= hidden_field_tag(:user_id, current_user.id) %>
+

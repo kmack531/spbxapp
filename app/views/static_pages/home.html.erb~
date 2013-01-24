@@ -1,0 +1,38 @@
+<% if signed_in? %>
+
+  <div class="row">
+    <aside class="span4">
+		<div class="hero-unit">
+		<% @user = current_user%>
+		<% render @user%>
+		<% User.all(limit:16).each do |user| %>
+			<%= link_to gravatar_for(user, size:35), user_path(user), onMouseover: "alert(user.username)" %>
+
+		<% end %>
+<br>
+<br>
+<br>	
+<br>
+<br>
+<br>
+<br>
+		</div>
+    </aside>
+
+    <div class="span8">
+		<%= render @question %>
+		<%= will_paginate @question %>
+    </div>
+  </div>  
+
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the people's SoapBox</h1>
+<br />
+    <h2>
+      Our site is going to be super cool, so sign up now!
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-warning" %>
+  </div>
+<% end %>

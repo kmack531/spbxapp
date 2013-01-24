@@ -1,0 +1,12 @@
+  <div class="field">
+    <%= f.label "What are you wondering today?" %>
+    <%= f.text_field :content %><br /><br />
+  </div>
+
+  <p><b> And what are the alternatives to choose from? </b></p>
+
+  <%= f.fields_for :choices do |builder| %>
+	<%= render "choices_fields", :f => builder %>
+  <% end %>
+<br>
+<br>
